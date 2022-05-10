@@ -1,13 +1,16 @@
 package com.afollestad.sectionedrecyclerview;
 
-import android.support.annotation.IntRange;
-import android.support.annotation.Nullable;
-import android.support.annotation.RestrictTo;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.util.Log;
 import android.view.ViewGroup;
+
+import androidx.annotation.IntRange;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RestrictTo;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.recyclerview.widget.StaggeredGridLayoutManager;
+
 import java.util.List;
 
 /** @author Aidan Follestad (afollestad) */
@@ -320,7 +323,7 @@ public abstract class SectionedRecyclerViewAdapter<VH extends SectionedViewHolde
    */
   @Deprecated
   @RestrictTo(RestrictTo.Scope.LIBRARY_GROUP)
-  public final void onBindViewHolder(VH holder, int position, List<Object> payloads) {
+  public final void onBindViewHolder(@NonNull VH holder, int position, @NonNull List<Object> payloads) {
     super.onBindViewHolder(holder, position, payloads);
   }
 }

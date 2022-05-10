@@ -1,29 +1,31 @@
 package com.afollestad.sectionedrecyclerviewsample;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuItem;
 
-/** @author Aidan Follestad (afollestad) */
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+/**
+ * @author Aidan Follestad (afollestad)
+ */
 public class MainActivity extends AppCompatActivity {
 
-  private MainAdapter adapter;
-  private boolean hideEmpty;
-  private boolean showFooters = true;
+    private MainAdapter adapter;
+    private boolean hideEmpty;
+    private boolean showFooters = true;
 
-  @Override
-  protected void onCreate(@Nullable Bundle savedInstanceState) {
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_main);
 
-    RecyclerView list = (RecyclerView) findViewById(R.id.list);
+        RecyclerView list = findViewById(R.id.list);
     adapter = new MainAdapter();
-    GridLayoutManager manager =
-        new GridLayoutManager(this, getResources().getInteger(R.integer.grid_span));
+        GridLayoutManager manager = new GridLayoutManager(this, getResources().getInteger(R.integer.grid_span));
     list.setLayoutManager(manager);
     adapter.setLayoutManager(manager);
     adapter.shouldShowHeadersForEmptySections(hideEmpty);

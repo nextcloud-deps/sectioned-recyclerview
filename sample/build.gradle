@@ -3,7 +3,6 @@ apply from: '../dependencies.gradle'
 
 android {
     compileSdkVersion versions.compileSdk
-    buildToolsVersion versions.buildTools
 
     lintOptions {
         abortOnError false
@@ -24,6 +23,7 @@ android {
 }
 
 dependencies {
-    compile project(':library')
-    compile 'com.android.support:appcompat-v7:' + versions.supportLib
+    implementation project(':library')
+    implementation 'androidx.appcompat:appcompat:1.4.1'
+    implementation 'androidx.recyclerview:recyclerview:1.2.1'
 }

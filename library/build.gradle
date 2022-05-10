@@ -9,7 +9,6 @@ ext {
 
 android {
     compileSdkVersion versions.compileSdk
-    buildToolsVersion versions.buildTools
 
     lintOptions {
         abortOnError false
@@ -29,10 +28,10 @@ android {
 }
 
 dependencies {
-    compile 'com.android.support:recyclerview-v7:' + versions.supportLib
-    compile 'com.android.support:support-v4:' + versions.supportLib
-    testCompile 'com.google.truth:truth:' + versions.truth
-    testCompile 'junit:junit:' + versions.junit
+    implementation 'androidx.recyclerview:recyclerview:1.2.1'
+    implementation 'androidx.annotation:annotation:1.3.0'
+    testImplementation 'com.google.truth:truth:' + versions.truth
+    testImplementation 'junit:junit:' + versions.junit
 }
 
-apply from: 'https://raw.githubusercontent.com/afollestad/aidanfollestad.com/master/android-lib-release.gradle'
+//apply from: 'https://raw.githubusercontent.com/afollestad/aidanfollestad.com/master/android-lib-release.gradle'

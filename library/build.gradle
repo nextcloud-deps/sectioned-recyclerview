@@ -1,4 +1,5 @@
 apply plugin: 'com.android.library'
+apply plugin: 'maven-publish' // needed for JitPack.io
 apply from: '../dependencies.gradle'
 
 ext {
@@ -32,6 +33,19 @@ dependencies {
     implementation 'androidx.annotation:annotation:1.3.0'
     testImplementation 'com.google.truth:truth:' + versions.truth
     testImplementation 'junit:junit:' + versions.junit
+}
+
+afterEvaluate {
+    publishing {
+        publications {
+            release(MavenPublication) {
+                from components.release
+
+                groupId = 'com.tobiaskaminsky.sectioned-recylerview'
+                artifactId = versions.publishVersion
+            }
+        }
+    }
 }
 
 //apply from: 'https://raw.githubusercontent.com/afollestad/aidanfollestad.com/master/android-lib-release.gradle'
